@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c2f32b1a72.js" crossorigin="anonymous"></script>
+    <title>Lesesirkel</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="font-family: 'Dancing Script', cursive;">Lesesirkel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Leselyst</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Pages and Prose</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container text-center">
+        <div class="row justify-content-around">
+            <div class="col-md-12 col-lg-5">
+                <h1 class="display-1 pt-3" style="font-family: 'Dancing Script', cursive;">Welcome</h1>
+                <p class="lead mt-3 lh-lg">Deichman Tøyen in collaboration with
+                    Tøyen Frivilligsentral is proud to present two reading clubs: Leselyst and Pages
+                    and Prose. Join us every month for some coffee, snacks and heated literature discussions!</p>
+
+                <% if (failedLoginMessage.length> 0) { %>
+                    <div>
+                        <% failedLoginMessage.forEach(message=> { %>
+                            <p>
+                                <%= message %>
+                            </p>
+                            <% }); %>
+                    </div>
+                    <% } %>
+
+                        <div class="card p-2 shadow-lg mx-3 mb-5">
+                            <form action="/login-form" method="POST" id="login-form">
+                                <div class="m-3">
+                                    <input type="email" placeholder="Email" class="form-control" id="email" name="email"
+                                        aria-label="email" required>
+                                </div>
+                                <div class="m-3">
+                                    <input type="password" placeholder="Password" class="form-control" id="password"
+                                        name="password" aria-label="password" minlength="8" required>
+                                </div>
+                                <div class="d-grid gap-2 m-3">
+                                    <input type="submit" class="btn btn-secondary mt-2" value="Login" />
+                                </div>
+                            </form>
+                        </div>
+                        <% if (failedRegisterMessage.length> 0) { %>
+                            <div>
+                                <% failedRegisterMessage.forEach(message=> { %>
+                                    <p>
+                                        <%= message %>
+                                    </p>
+                                    <% }); %>
+                            </div>
+                            <% } %>
+                                <div class="card p-2 shadow-lg mx-3 mb-3">
+                                    <form action="/register-form" method="POST" id="register-form">
+                                        <div class="m-3">
+                                            <input type="text" placeholder="Name" class="form-control" id="name"
+                                                name="name" aria-label="name" required>
+                                        </div>
+                                        <div class="m-3">
+                                            <input type="email" placeholder="Email with @(stud)noroff.no"
+                                                class="form-control" id="email" name="email" aria-label="email"
+                                                required>
+                                        </div>
+                                        <div class="m-3">
+                                            <input type="password" placeholder="Password, min 8 characters"
+                                                class="form-control" id="password" name="password" aria-label="password"
+                                                minlength="8" required>
+                                        </div>
+                                        <div class="d-grid gap-2 m-3">
+                                            <input type="submit" class="btn btn-secondary mt-2" value="Register" />
+                                        </div>
+                                    </form>
+                                </div>
+            </div>
+            <div class="col-md-12 col-lg-5 mt-5">
+                <img src="/images/toa-heftiba-ip9R11FMbV8-unsplash.jpg" class="img-thumbnail"
+                    alt="a pile of books on a table">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
